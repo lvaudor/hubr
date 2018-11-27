@@ -1,0 +1,40 @@
+---
+title: "A glimpse of the hubr package"
+author: "L. Vaudor"
+date: "27 novembre 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, warning=FALSE, message=FALSE}
+library(hubr)
+```
+
+
+```{r, fig.width=6, fig.height=4}
+x=c(rnorm(130,3,2),
+    rnorm(220,10,2),
+    rnorm(500,2,2),
+    rnorm(50,-4,2),
+    rnorm(30,2,2),
+    rnorm(120,8,2))
+seg_obj=Hubert_segmentation(x)
+plot(x)
+lines(model_signal(x,seg_obj$locations), col="red",lwd=3)
+```
+
+```{r, fig.width=6, fig.height=4}
+x=c(rnorm(130,3,2),
+    rnorm(220,5,2),
+    rnorm(500,4,2),
+    rnorm(50,6,2),
+    rnorm(30,4,2),
+    rnorm(120,3,2))
+seg_obj=Hubert_segmentation(x)
+plot(x)
+lines(model_signal(x,seg_obj$locations), col="red",lwd=3)
+```
+
