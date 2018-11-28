@@ -20,7 +20,12 @@ a list providing cuts location, test results and total error associated to the s
 Finds the optimal Hubert segmentation of a series x
 }
 \examples{
-x=c(rnorm(100,3,2),rnorm(100,10,2),rnorm(100,2,2),rnorm(100,-4,2),rnorm(100,6,2),rnorm(100,2,2),rnorm(100,8,2))
+x=c(rnorm(130,3,2),
+    rnorm(220,10,2),
+    rnorm(500,2,2),
+    rnorm(50,-4,2),
+    rnorm(30,2,2),
+    rnorm(120,8,2))
 seg_obj=Hubert_segmentation(x)
 plot(x)
 lines(model_signal(x,seg_obj$locations), col="red",lwd=3)

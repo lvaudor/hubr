@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_dst.R
 \name{calculate_dst}
 \alias{calculate_dst}
-\title{Calculates the error associated to all possible segments x\link{s:t} where 1<=s<=t<=N and N is the length of x}
+\title{Calculates the error associated to all possible segments x[s:t] where 1<=s<=t<=N and N is the length of x}
 \usage{
 calculate_dst(x)
 }
@@ -10,10 +10,10 @@ calculate_dst(x)
 \item{x}{a series}
 }
 \value{
-a ff matrix M such that M\link{s,t} corresponds to the error associated with segment x\link{s,t}
+a ff matrix M such that M[s,t] corresponds to the error associated with segment x[s,t]
 }
 \description{
-Calculates the error associated to all possible segments x\link{s:t} where 1<=s<=t<=N and N is the length of x
+Calculates the error associated to all possible segments x[s:t] where 1<=s<=t<=N and N is the length of x
 }
 \examples{
 x=c(rnorm(100,3,2),rnorm(100,10,2),rnorm(100,2,2),rnorm(100,-4,2),rnorm(100,6,2),rnorm(100,2,2),rnorm(100,8,2))
