@@ -5,6 +5,7 @@
 #' @export
 #' @examples
 #' x=c(rnorm(100,3,2),rnorm(100,10,2),rnorm(100,2,2),rnorm(100,-4,2),rnorm(100,6,2),rnorm(100,2,2),rnorm(100,8,2))
+#' Dstat(x,seg=c(1,300,701))
 Dstat=function(x,seg){
  return(sum((x-model_signal(x,seg))^2))
 }

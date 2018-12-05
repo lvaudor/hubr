@@ -7,12 +7,14 @@ output: html_document
 
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+set.seed(33)
 ```
 
 ```{r, warning=FALSE, message=FALSE}
 library(hubr)
 ```
 
+Let us consider the following signal, which is composed of several segments with differing lengths and means (but constant variance):
 
 ```{r, fig.width=6, fig.height=4}
 x=c(rnorm(130,3,2),
@@ -21,10 +23,23 @@ x=c(rnorm(130,3,2),
     rnorm(50,-4,2),
     rnorm(30,2,2),
     rnorm(120,8,2))
+plot(x, type="l")
+```
+
+The `Hubert_segmentation()` function detects automatically the breaks in this shifting means signal:
+
+
+```{r, fig.width=6, fig.height=4}
 seg_obj=Hubert_segmentation(x)
-plot(x)
+plot(x, type="l")
 lines(model_signal(x,seg_obj$locations), col="red",lwd=3)
 ```
+
+`model_signal()` is a helper function which returns the series of predicted values according to the segmentation object.
+
+
+
+Now, let us consider a signal with shifting means, in which the shift in mean is a bit less important when compared to variance.
 
 ```{r, fig.width=6, fig.height=4}
 x=c(rnorm(130,3,2),
@@ -33,8 +48,12 @@ x=c(rnorm(130,3,2),
     rnorm(50,6,2),
     rnorm(30,4,2),
     rnorm(120,3,2))
+plot(x, type="l")
+```
+
+```{r, fig.width=6, fig.height=4}
 seg_obj=Hubert_segmentation(x)
-plot(x)
+plot(x, type="l")
 lines(model_signal(x,seg_obj$locations), col="red",lwd=3)
 ```
 
